@@ -1,0 +1,138 @@
+/Times-Roman findfont 12 scalefont setfont
+
+/size 70 def
+/cellsize 5 def
+/numgens 100 def
+
+/get2 {
+   3 1 roll get exch get 
+} def
+
+/put2 {
+   /val exch def /c exch def /r exch def /tmpar2 exch def
+   /tmpar tmpar2 r get def 
+   tmpar c val put
+   tmpar2 r tmpar put
+} def
+
+/ar
+size {
+   0 size 1 sub { dup } repeat
+   size array astore
+} repeat
+size array astore 
+def
+
+/ar2
+size {
+   0 size 1 sub { dup } repeat
+   size array astore
+} repeat
+size array astore 
+def
+
+/diffs
+size {
+   0 size 1 sub { dup } repeat
+   size array astore
+} repeat
+size array astore 
+def
+
+/arcpy {
+   /dest exch def /src exch def
+   0 1 size 1 sub {
+      /i exch def
+      0 1 size 1 sub {
+         /j exch def
+         dest i j src i j get2 put2
+      } for
+   } for
+} def
+
+/disp {
+   0 1 size 1 sub { /i exch def
+      0 1 size 1 sub { /j exch def
+         diffs i j get2 dup 0 ne {
+            1 eq { 1 } { 0 } ifelse
+            setgray
+            newpath
+            100 cellsize j mul add 500 cellsize i mul sub moveto 
+            0 cellsize rlineto
+            cellsize 0 rlineto
+            0 cellsize neg rlineto
+            closepath
+            fill
+         } { pop } ifelse
+      } for
+   } for
+} def
+
+/dispPage {
+   0 1 size 1 sub { /i exch def
+      0 1 size 1 sub { /j exch def
+         ar i j get2 dup 0 ne {
+            0
+            setgray
+            newpath
+            100 cellsize j mul add 500 cellsize i mul sub moveto 
+            0 cellsize rlineto
+            cellsize 0 rlineto
+            0 cellsize neg rlineto
+            closepath
+            fill
+         } { pop } ifelse
+      } for
+   } for
+   showpage
+} def
+
+/Wrap {
+   size add size mod
+} def
+
+/DoGen {
+   /diffs
+   size {
+      0 size 1 sub { dup } repeat
+      size array astore
+   } repeat
+   size array astore 
+   def
+   0 1 size 1 sub {
+      /i exch def
+      0 1 size 1 sub {
+         /j exch def
+         /neighbors 0 def
+         -1 1 1  {
+            /di exch def
+            -1 1 1 {
+               /dj exch def
+               di 0 ne dj 0 ne or {
+                  ar i di add Wrap j dj add Wrap get2 1 eq {
+                     /neighbors neighbors 1 add def
+                  } if
+               } if
+            } for
+         } for
+         ar i j get2 1 eq 
+         { neighbors 2 eq neighbors 3 eq or not {ar2 i j 0 put2 diffs i j 1 put2} if }
+         { neighbors 3 eq  {ar2 i j 1 put2 diffs i j -1 put2} if }
+         ifelse
+      } for
+   } for
+   ar2 ar arcpy
+} def
+
+/setcell {
+   1 3 copy ar 4 1 roll put2 diffs 4 1 roll put2
+} def
+
+size size mul 4 div cvi {
+   rand size mod rand size mod setcell
+} repeat
+
+ar ar2 arcpy
+
+numgens { dispPage DoGen } repeat
+dispPage

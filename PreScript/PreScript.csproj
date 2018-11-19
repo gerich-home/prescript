@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AECE7B8F-EBBF-4A50-B423-950473026E95}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PreScript</RootNamespace>
+    <AssemblyName>PreScript</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClosePath.cs" />
+    <Compile Include="CodeParser.cs" />
+    <Compile Include="Arc.cs" />
+    <Compile Include="SetLineWidth.cs" />
+    <Compile Include="CurveTo.cs" />
+    <Compile Include="StrokePath.cs" />
+    <Compile Include="SetRGB.cs" />
+    <Compile Include="RestoreGraphicsState.cs" />
+    <Compile Include="SaveGraphicsState.cs" />
+    <Compile Include="LineTo.cs" />
+    <Compile Include="RelativeLineTo.cs" />
+    <Compile Include="MoveTo.cs" />
+    <Compile Include="ShowPage.cs" />
+    <Compile Include="FillPath.cs" />
+    <Compile Include="IGraphicsState.cs" />
+    <Compile Include="NewPath.cs" />
+    <Compile Include="GraphicsState.cs" />
+    <Compile Include="Print.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetGray.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\SampleScripts\gameoflife.ps">
+      <Link>SampleScripts\gameoflife.ps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3compBrunA.eps">
+      <Link>SampleScripts\3compBrunA.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3compBrunB.eps">
+      <Link>SampleScripts\3compBrunB.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3compBrunC.eps">
+      <Link>SampleScripts\3compBrunC.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3compBrunD.eps">
+      <Link>SampleScripts\3compBrunD.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3compBrunE.eps">
+      <Link>SampleScripts\3compBrunE.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3stringTangleA.eps">
+      <Link>SampleScripts\3stringTangleA.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\3stringTangleB.eps">
+      <Link>SampleScripts\3stringTangleB.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\BBframe.eps">
+      <Link>SampleScripts\BBframe.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticA.eps">
+      <Link>SampleScripts\CelticA.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticB.eps">
+      <Link>SampleScripts\CelticB.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticC.eps">
+      <Link>SampleScripts\CelticC.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticD.eps">
+      <Link>SampleScripts\CelticD.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticE.eps">
+      <Link>SampleScripts\CelticE.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticF.eps">
+      <Link>SampleScripts\CelticF.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticG.eps">
+      <Link>SampleScripts\CelticG.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\CelticH.eps">
+      <Link>SampleScripts\CelticH.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\InfinityCabled.eps">
+      <Link>SampleScripts\InfinityCabled.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge1.eps">
+      <Link>SampleScripts\Merge1.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge2.eps">
+      <Link>SampleScripts\Merge2.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge3.eps">
+      <Link>SampleScripts\Merge3.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge4.eps">
+      <Link>SampleScripts\Merge4.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge5.eps">
+      <Link>SampleScripts\Merge5.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge6.eps">
+      <Link>SampleScripts\Merge6.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\Merge7.eps">
+      <Link>SampleScripts\Merge7.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\PL.eps">
+      <Link>SampleScripts\PL.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\TruchetTiling.eps">
+      <Link>SampleScripts\TruchetTiling.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\SampleScripts\WireFrame.eps">
+      <Link>SampleScripts\WireFrame.eps</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PreScript.Core\PreScript.Core.csproj">
+      <Project>{7c2db9c2-edee-46ab-8ff9-011ae46fe9a5}</Project>
+      <Name>PreScript.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
