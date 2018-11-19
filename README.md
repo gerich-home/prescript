@@ -16,7 +16,7 @@ It will result in file 1.bmp containing the output or in a failure in case some 
 In case the passed document is a multipage document then files named 1.bmp, 2.bmp, ... will be created.
 
 
-Some sample ps/eps scripts exist in /SampleScripts directory.
+Some sample ps/eps scripts exist in /SampleScripts (taken from here: https://knotplot.com/postscript/index.html) directory.
 
 Some interesting examples are:
 * gameoflife.ps
